@@ -69,6 +69,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>module3test</finalName>
 	</build>
 
 </project>
