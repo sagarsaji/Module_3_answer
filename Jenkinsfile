@@ -5,14 +5,21 @@ pipeline {
         stage('Dev') {
             steps {
                 git branch: 'main', credentialsId: 'ad63f2f4-0502-4bb9-bd0b-e2d047f54da8', url: 'https://github.com/sagarsaji/Module_3_answer.git'
-                bat 'mvn clean install -Denv=dev'
+                bat 'mvn clean install'
             }
         }
+
+        stage('UAT') {
+                    steps {
+                        git branch: 'main', credentialsId: 'ad63f2f4-0502-4bb9-bd0b-e2d047f54da8', url: 'https://github.com/sagarsaji/Module_3_answer.git'
+                        bat 'mvn clean test'
+                    }
+                }
 
         stage('Prod') {
             steps {
                 git branch: 'main', credentialsId: 'ad63f2f4-0502-4bb9-bd0b-e2d047f54da8', url: 'https://github.com/sagarsaji/Module_3_answer.git'
-                bat 'mvn clean install -Denv=prod'
+                bat 'mvn clean install'
             }
         }
     }
